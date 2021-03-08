@@ -2,10 +2,13 @@
 node_modules
 /dist
 
-
 # local env files
 .env.local
 .env.*.local
+src/views/Dashboard.vue
+src/views/Projects.vue
+src/views/Team.vue
+src/components/Navbar.vue
 
 # Log files
 npm-debug.log*
