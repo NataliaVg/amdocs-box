@@ -1,16 +1,18 @@
 <template>
   <v-app>
-    <v-content>
+    <NavbarHome />
+    <v-content class="background">
       <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import NavbarHome from './components/NavbarHome.vue';
 
-export default Vue.extend({
+export default ({
   name: 'App',
+  components: { NavbarHome },
 
   data: () => ({
     //
