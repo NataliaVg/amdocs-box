@@ -13,6 +13,8 @@ export default new Vuetify({
         yellow: '#EAB330',
         coral: '#D5665F',
         magenta: '#CA0088',
+        paper: '#B3B0C4',
+        gray: '#E3E5E3',
       },
     },
   },
