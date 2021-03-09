@@ -6,6 +6,13 @@
       flat
     >
     <v-container class="py-0 fill-height">
+     <v-img
+        class="mx-2"
+        :src="require('@/assets/whiteLogo.png')"
+        max-height="50"
+        max-width="150"
+        contain
+      ></v-img>
     <v-spacer></v-spacer>
 
      <v-btn
