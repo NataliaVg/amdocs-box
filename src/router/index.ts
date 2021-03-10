@@ -3,6 +3,9 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
 import LogIn from '../views/LogIn.vue';
 import Feedback from '../views/Feedback.vue';
+import Inbox from '../views/Inbox.vue';
+import CaseM from '../views/CaseM.vue';
+import Roles from '../views/Roles.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +24,21 @@ const routes: Array<RouteConfig> = [
     path: '/feedback',
     name: 'Feedback',
     component: Feedback,
+  },
+  {
+    path: '/inbox',
+    name: 'Inbox',
+    component: Inbox,
+  },
+  {
+    path: '/casem',
+    name: 'CaseM',
+    component: CaseM,
+  },
+  {
+    path: '/roles',
+    name: 'Roles',
+    component: Roles,
   },
 ];
 
