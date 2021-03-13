@@ -16,12 +16,22 @@
     <v-spacer></v-spacer>
 
      <v-btn
-      v-for="link in links"
+     class="hidden-sm-and-down"
+      v-for="link in linksAdmin"
       :key="link"
+      router :to="link.path"
       text
       dark
       >
       {{ link.text }}
+    </v-btn>
+    <v-btn
+      class="hidden-md-and-up"
+      router to="/login"
+      text
+      dark
+      >
+      Log in
     </v-btn>
     </v-container>
     </v-app-bar>
@@ -36,10 +46,24 @@
 <script>
 export default {
   data: () => ({
-    links: [
+    linksGeneral: [
       { text: 'Feedback', path: '/feedback' },
-      { text: 'Inbox', path: '/feedback' },
-      { text: 'Sign out', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Sign out', path: '/' },
+    ],
+    linksArea: [
+      { text: 'Feedback', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Case Managment', path: '/casem' },
+      { text: 'Dashboard', path: '/dashboard' },
+      { text: 'Sign out', path: '/' },
+    ],
+    linksAdmin: [
+      { text: 'Feedback', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Dashboard', path: '/dashboard' },
+      { text: 'User role', path: '/roles' },
+      { text: 'Sign out', path: '/' },
     ],
   }),
 };

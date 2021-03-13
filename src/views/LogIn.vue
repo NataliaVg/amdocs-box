@@ -62,6 +62,7 @@
             <v-btn
               color="magenta"
               dark
+              rout to="/feedback"
             >
             <v-icon left>
               mdi-pencil

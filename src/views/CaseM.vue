@@ -1,32 +1,10 @@
 <template>
     <div class="inbox">
-        <v-container class="mt-8">
-            <v-row>
-                <v-col cols="3">
-                </v-col>
-                <v-col cols="9">
-                        <v-autocomplete
-                        v-model="values"
-                        :items="status"
-                        outlined
-                        dense
-                        chips
-                        small-chips
-                        label="Status filter"
-                        multiple
-                        dark
-                        filled
-                    ></v-autocomplete>
-                </v-col>
-            </v-row>
-        </v-container>
-
-        <v-container class="mt-n7">
-
-            <v-row>
+        <v-container class="top">
+            <v-row justify="end">
                 <v-col
-                  class="wrap"
-                  cols="3"
+                  class="wrap hidden-sm-and-down"
+                  md="3"
                 >
                     <v-sheet
                       class="status text-no-wrap"
@@ -53,13 +31,6 @@
                                   :key="link.text" router
                                   :to="link.route"
                                 >
-                                    <v-list-item-icon>
-                                        <v-icon
-                                          :color="link.colorC"
-                                        >
-                                        {{ link.icon }}
-                                        </v-icon>
-                                    </v-list-item-icon>
                                     <v-list-item-content>
                                         <v-list-item-title>
                                         {{ link.text }}
@@ -70,75 +41,39 @@
                         </v-list>
                     </v-sheet>
                 </v-col>
-                <v-col>
-                    <div
-                      v-for="card in cards"
-                      :key="card"
-                      cols="9"
+                <v-col
+                  cols="9"
+                >
+                  <template>
+                    <v-data-table
+                      :headers="headers"
+                      :items="subareas"
+                      class="table elevation-1 mb-10"
+                      hide-default-footer
+                      rounded="lg"
                     >
-                        <v-card
-                          class="mb-5"
-                          elevation="3"
-                          rounded="lg"
-                        >
-                            <v-subheader>
-                                {{ card.date }}
-                            </v-subheader>
-                            <v-card-title>
-                                Case: {{ card.caseID }}
-                            </v-card-title>
-                            <v-card-subtitle>
-                                Feedback type: {{ card.feedbackType }}
-                            </v-card-subtitle>
-                            <v-card-text>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                Placeat amet cupiditate laudantium perferendis dicta culpa
-                                modi repudiandae asperiores veritatis hic quam tenetur voluptates
-                                facilis expedita, molestias aut, aliquid tempore alias.
-                                <v-textarea
-                                  class="mt-4"
-                                  filled
-                                  clear-icon="mdi-close-circle"
-                                  auto-grow
-                                  label="My reply"
-                                ></v-textarea>
-                            </v-card-text>
-                            <v-card-actions class="justify-end mt-n7">
-                                <v-col cols="3 mb-n8 mr-1">
-                                    <v-select
-                                      :items="status"
-                                      label="Status"
-                                      outlined
-                                    ></v-select>
-                                </v-col>
-                                <v-col cols="6">
-                                    <v-btn
-                                        color="magenta"
-                                        dark
-                                        v-bind="attrs"
-                                        v-on="on"
-                                    >
-                                        <v-icon left>
-                                        mdi-send
-                                        </v-icon>
-                                    Reply
-                                    </v-btn>
-                                </v-col>
-                                <v-col cols="3 mr-1">
-                                    <v-btn
-                                      class=""
-                                      color="magenta"
-                                      dark
-                                    >
-                                        <v-icon>
-                                            mdi-email
-                                        </v-icon>
-                                     Send feedback
-                                    </v-btn>
-                                </v-col>
-                            </v-card-actions>
-                        </v-card>
-                    </div>
+                    </v-data-table>
+                  </template>
+
+                  <template>
+                    <v-data-table
+                      :headers="headers2"
+                      :items="status2"
+                      class="table elevation-1 mb-10"
+                      hide-default-footer
+                    >
+                    </v-data-table>
+                  </template>
+
+                  <template>
+                    <v-data-table
+                      :headers="headers3"
+                      :items="status3"
+                      class="table elevation-1"
+                      hide-default-footer
+                    >
+                    </v-data-table>
+                  </template>
                 </v-col>
             </v-row>
         </v-container>
@@ -150,43 +85,88 @@ export default {
   name: 'Inbox',
   data() {
     return {
-      status: ['Open', 'On going', 'Closed'],
-      drawer: true,
       links: [
         {
-          icon: 'mdi-circle-medium', text: 'General', route: '/casem',
+          text: 'General', route: '/casem',
         },
         {
-          icon: 'mdi-emoticon-confused-outline', text: 'Complaint', route: '/complaint',
+          text: 'Area', route: '/area',
         },
         {
-          icon: 'mdi-thumb-up-outline', text: 'Congratulation', route: '/congratulation',
+          text: 'Subarea 1', route: '/sub1',
         },
         {
-          icon: 'mdi-help', text: 'Question', route: '/question',
+          text: 'Subarea 2', route: '/sub2',
         },
         {
-          icon: 'mdi-chat-outline', text: 'Suggestion', route: '/suggestion',
+          text: 'Subarea 3', route: '/sub3',
         },
       ],
-      cards: [
+      headers: [
         {
-          date: '22:22 Today', caseID: '5', area: 'Operations', feedbackType: 'Complaint',
+          text: 'Area',
+          align: 'start',
+          value: 'name',
+        },
+        { text: 'Number of cases', value: 'ncases' },
+      ],
+      subareas: [
+        { name: 'Human Resources', ncases: 35 },
+        { name: 'sub2', ncases: 22 },
+        { name: 'sub3', ncases: 7 },
+        { name: 'sub4', ncases: 32 },
+        { name: 'sub5', ncases: 16 },
+      ],
+      headers2: [
+        {
+          text: 'Status',
+          align: 'start',
+          value: 'name',
+        },
+        { text: 'Number of cases', value: 'ncases' },
+      ],
+      status2: [
+        { name: 'Open', ncases: 23 },
+        { name: 'In progress', ncases: 30 },
+        { name: 'Closed', ncases: 40 },
+      ],
+      headers3: [
+        {
+          text: 'Subarea',
+          align: 'start',
+          value: 'name',
+        },
+        { text: 'Open', value: 'open' },
+        { text: 'On going', value: 'going' },
+        { text: 'Closed', value: 'closed' },
+      ],
+      status3: [
+        {
+          name: 'sub1', open: 10, going: 4, closed: 21,
         },
         {
-          date: '9:04 Yesterday', caseID: '4', area: 'Facilites', feedbackType: 'Question',
+          name: 'sub2', open: 13, going: 13, closed: 24,
         },
         {
-          date: '12:00 3/8/2021', caseID: '3', area: 'Technology', feedbackType: 'Suggestion',
+          name: 'sub3', open: 45, going: 26, closed: 41,
         },
         {
-          date: '15:31 3/7/2021', caseID: '2', area: 'Human Resources', feedbackType: 'Congratulation',
+          name: 'sub4', open: 61, going: 14, closed: 4,
         },
         {
-          date: '11:55 3/6/2021', caseID: '1', area: 'Operations', feedbackType: 'Complaint',
+          name: 'sub5', open: 13, going: 8, closed: 2,
         },
       ],
     };
   },
 };
 </script>
+
+<style>
+.top {
+  margin-top: 94px;
+}
+.table table thead tr th {
+  background: #E3E5E3;
+}
+</style>
