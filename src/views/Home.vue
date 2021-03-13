@@ -4,15 +4,7 @@
         no-gutters
         >
             <v-col
-                cols="6"
-                md="6">
-                <v-img
-                    :src="require('../assets/landing1.jpg')"
-                    height="100vh"
-                ></v-img>
-            </v-col>
-            <v-col
-                cols="10"
+                cols="12"
                 md="6"
                 align="center"
                 class="gradient-background"
@@ -26,10 +18,9 @@
                     >
                     </v-col>
                     <v-col
-                        cols="6"
-                        md="6"
-                        mt-16
-
+                      class="mb-10"
+                      cols="6"
+                      md="6"
                     >
                         <h1>Let's communicate!</h1>
                         <p class="pa-5">
@@ -45,11 +36,20 @@
                         <v-btn
                             x-large
                             rounded
+                            router to="/login"
                         >
                         Log in
                         </v-btn>
                     </v-col>
                 </v-row>
+            </v-col>
+            <v-col
+                cols="12"
+                md="6">
+                <v-img
+                    :src="require('../assets/landing1.jpg')"
+                    height="100vh"
+                ></v-img>
             </v-col>
         </v-row>
   </div>
@@ -63,6 +63,6 @@ export default {
 </script>
 <style>
 .gradient-background {
-    background-image: linear-gradient(to right, transparent , coral);
+    background-image: linear-gradient(to right, #D5665F, transparent);
 }
 </style>
