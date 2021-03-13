@@ -7,6 +7,9 @@ import DashboardAdmin from '../views/DashboardAdmin.vue';
 import DashboardPuntoC from '../views/DashboardPuntoC.vue';
 import Try from '../views/Try.vue';
 import Manage from '../views/Manage.vue';
+import Inbox from '../views/Inbox.vue';
+import CaseM from '../views/CaseM.vue';
+import Roles from '../views/Roles.vue';
 
 Vue.use(VueRouter);
 
@@ -32,7 +35,7 @@ const routes: Array<RouteConfig> = [
     component: DashboardAdmin,
   },
   {
-    path: '/dashboardPuntoC',
+    path: '/dashboardpuntoc',
     name: 'DashboardPuntoC',
     component: DashboardPuntoC,
   },
@@ -45,6 +48,21 @@ const routes: Array<RouteConfig> = [
     path: '/manage',
     name: 'Manage',
     component: Manage,
+  },
+  {
+    path: '/inbox',
+    name: 'Inbox',
+    component: Inbox,
+  },
+  {
+    path: '/casem',
+    name: 'CaseM',
+    component: CaseM,
+  },
+  {
+    path: '/roles',
+    name: 'Roles',
+    component: Roles,
   },
 ];
 
