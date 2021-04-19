@@ -166,23 +166,36 @@
                     ></v-checkbox>
                     </v-row>
                     <v-row justify="end">
-                        <spacer/>
-
-                        <v-btn
-                            class="ma-4"
-                            color="magenta"
-                            dark
-                        >
-                        <v-icon left>
-                            mdi-send
-                        </v-icon>
-                            send
-                        </v-btn>
-                    </v-row>
+                    <spacer/>
+                    <v-dialog
+                        v-model="dialog"
+                        width="500"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                                class="ma-4"
+                                color="magenta"
+                                dark
+                                v-bind="attrs"
+                                v-on="on"
+                            >
+                            <v-icon left>
+                                mdi-send
+                            </v-icon>
+                                send
+                            </v-btn>
+                        </template>
+                        <v-card>
+                            <v-card-title class="headline grey lighten-2">
+                            Message sent
+                            </v-card-title>
+                        </v-card>
+                        </v-dialog>
+                            </v-row>
+                        </v-col>
+                    </v-sheet>
                 </v-col>
-            </v-sheet>
-          </v-col>
-         </v-row>
+            </v-row>
        </v-container>
     </v-main>
 </template>
@@ -190,6 +203,7 @@
 <script>
 export default {
   data: () => ({
+    dialog: false,
     links: [
       'Feedback',
       'Inbox',

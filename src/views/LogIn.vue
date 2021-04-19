@@ -31,7 +31,6 @@
                     <v-text-field
                       v-model="Username"
                       :rules="usernameRules"
-                      :counter="10"
                       label="Username"
                       required
                       full-width
@@ -45,6 +44,7 @@
                     <v-text-field
                       v-model="password"
                       :rules="passwordRules"
+                      type="password"
                       label="Password"
                       required
                       full-width

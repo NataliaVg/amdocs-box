@@ -14,6 +14,7 @@ import Progress from '../views/Progress.vue';
 import Closed from '../views/Closed.vue';
 import Area from '../views/Area.vue';
 import AddArea from '../views/AddArea.vue';
+import AddSubarea from '../views/AddSubarea.vue';
 
 Vue.use(VueRouter);
 
@@ -87,6 +88,11 @@ const routes: Array<RouteConfig> = [
     path: '/addarea',
     name: 'AddArea',
     component: AddArea,
+  },
+  {
+    path: '/addSubarea',
+    name: 'AddSubarea',
+    component: AddSubarea,
   },
 ];
 

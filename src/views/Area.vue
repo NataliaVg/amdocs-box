@@ -43,7 +43,7 @@
                           dense
                         >
                             <v-header class="pa-5">
-                            CASE STATUS
+                            CASES
                             </v-header>
                             <v-divider class="my-2"></v-divider>
 
