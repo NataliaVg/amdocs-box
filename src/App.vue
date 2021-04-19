@@ -39,6 +39,9 @@ export default {
     links: [
       { text: 'Feedback', path: '/feedback' },
       { text: 'Inbox', path: '/feedback' },
+      { text: 'Dashboard', path: '/dashboardpuntoc' },
+      { text: 'UseRole', path: '/management' },
+      { text: 'Manage Area', path: '/management' },
       { text: 'Sign out', path: '/feedback' },
     ],
   }),
