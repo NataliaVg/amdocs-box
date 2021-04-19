@@ -16,12 +16,22 @@
     <v-spacer></v-spacer>
 
      <v-btn
-      v-for="link in links"
+     class="hidden-sm-and-down"
+      v-for="link in linksAdmin"
       :key="link"
+      router :to="link.path"
       text
       dark
       >
       {{ link.text }}
+    </v-btn>
+    <v-btn
+      class="hidden-md-and-up"
+      router to="/login"
+      text
+      dark
+      >
+      Log in
     </v-btn>
     </v-container>
     </v-app-bar>
@@ -36,13 +46,25 @@
 <script>
 export default {
   data: () => ({
-    links: [
+    linksGeneral: [
       { text: 'Feedback', path: '/feedback' },
-      { text: 'Inbox', path: '/feedback' },
-      { text: 'Dashboard', path: '/dashboardpuntoc' },
-      { text: 'UseRole', path: '/management' },
-      { text: 'Manage Area', path: '/management' },
-      { text: 'Sign out', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Sign out', path: '/' },
+    ],
+    linksArea: [
+      { text: 'Feedback', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Case Management', path: '/casem' },
+      { text: 'Dashboard', path: '/dashboardPuntoC' },
+      { text: 'Sign out', path: '/' },
+    ],
+    linksAdmin: [
+      { text: 'Feedback', path: '/feedback' },
+      { text: 'Inbox', path: '/inbox' },
+      { text: 'Dashboard', path: '/dashboardadmin' },
+      { text: 'User role', path: '/roles' },
+      { text: 'Manage area', path: '/addarea' },
+      { text: 'Sign out', path: '/' },
     ],
   }),
 };
