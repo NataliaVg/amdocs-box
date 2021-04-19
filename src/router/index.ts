@@ -5,6 +5,7 @@ import LogIn from '../views/LogIn.vue';
 import Feedback from '../views/Feedback.vue';
 import DashboardAdmin from '../views/DashboardAdmin.vue';
 import DashboardPuntoC from '../views/DashboardPuntoC.vue';
+import graphs from '../views/graphs.vue';
 import Try from '../views/Try.vue';
 import Manage from '../views/Manage.vue';
 import Inbox from '../views/Inbox.vue';
@@ -43,6 +44,11 @@ const routes: Array<RouteConfig> = [
     path: '/dashboardpuntoc',
     name: 'DashboardPuntoC',
     component: DashboardPuntoC,
+  },
+  {
+    path: '/graphs',
+    name: 'graphs',
+    component: graphs,
   },
   {
     path: '/try',
