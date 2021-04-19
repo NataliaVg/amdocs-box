@@ -43,8 +43,8 @@
       <v-col cols="9">
         <v-data-table
           :headers="headers"
-          :items="areas"
-          sort-by="area"
+          :items="subareas"
+          sort-by="subarea"
           class="elevation-1"
           hide-default-footer
         >
@@ -52,7 +52,7 @@
             <v-toolbar
               flat
             >
-              <v-toolbar-title>AREAS</v-toolbar-title>
+              <v-toolbar-title>SUBAREAS</v-toolbar-title>
               <v-divider
                 class="mx-4"
                 inset
@@ -71,7 +71,7 @@
                     v-bind="attrs"
                     v-on="on"
                   >
-                    New Area
+                    New Subarea
                   </v-btn>
                 </template>
                 <v-card>
@@ -89,7 +89,17 @@
                         >
                           <v-text-field
                             v-model="editedItem.name"
-                            label="Area name"
+                            label="Subarea name"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
+                        >
+                          <v-text-field
+                          v-model="editedItem.area"
+                          label="Area"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -171,14 +181,15 @@ export default {
     dialogDelete: false,
     headers: [
       {
-        text: 'Area',
+        text: 'Subarea',
         align: 'start',
         sortable: false,
         value: 'name',
       },
+      { text: 'Area', value: 'area' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
-    areas: [],
+    subareas: [],
     editedIndex: -1,
     editedItem: {
       name: '',
@@ -211,39 +222,44 @@ export default {
 
   methods: {
     initialize() {
-      this.areas = [
+      this.subareas = [
         {
-          name: 'Operations',
+          name: 'Subarea1',
+          area: 'Technology',
         },
         {
-          name: 'Facilites',
+          name: 'Subarea2',
+          area: 'Technology',
         },
         {
-          name: 'Technology',
+          name: 'Subarea3',
+          area: 'Technology',
         },
         {
-          name: 'Human Resources',
+          name: 'Subarea10',
+          area: 'Operations',
         },
         {
-          name: 'Operations',
+          name: 'Subarea12',
+          area: 'Facilites',
         },
       ];
     },
 
     editItem(item) {
-      this.editedIndex = this.areas.indexOf(item);
+      this.editedIndex = this.subareas.indexOf(item);
       this.editedItem = { ...item };
       this.dialog = true;
     },
 
     deleteItem(item) {
-      this.editedIndex = this.areas.indexOf(item);
+      this.editedIndex = this.subareas.indexOf(item);
       this.editedItem = { ...item };
       this.dialogDelete = true;
     },
 
     deleteItemConfirm() {
-      this.areas.splice(this.editedIndex, 1);
+      this.subareas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
 
@@ -265,9 +281,9 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.areas[this.editedIndex], this.editedItem);
+        Object.assign(this.subareas[this.editedIndex], this.editedItem);
       } else {
-        this.areas.push(this.editedItem);
+        this.subareas.push(this.editedItem);
       }
       this.close();
     },

@@ -54,7 +54,7 @@ export default {
     linksArea: [
       { text: 'Feedback', path: '/feedback' },
       { text: 'Inbox', path: '/inbox' },
-      { text: 'Case Managment', path: '/casem' },
+      { text: 'Case Management', path: '/casem' },
       { text: 'Dashboard', path: '/dashboardPuntoC' },
       { text: 'Sign out', path: '/' },
     ],
@@ -63,7 +63,7 @@ export default {
       { text: 'Inbox', path: '/inbox' },
       { text: 'Dashboard', path: '/dashboardadmin' },
       { text: 'User role', path: '/roles' },
-      { text: 'Add area', path: '/addarea' },
+      { text: 'Manage area', path: '/addarea' },
       { text: 'Sign out', path: '/' },
     ],
   }),
